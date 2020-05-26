@@ -22,12 +22,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // New Permissions functions
-Route::group(['middleware' => 'role:developer'], function() {
-
-    Route::get('/admin', function() {
-
-        return 'Welcome Admin';
-
-    });
-
-});
+//Route::group(['middleware' => 'role:developer'], function() {
+//
+//    Route::get('/admin', function() {
+//
+//        return 'Welcome Admin';
+//
+//    });
+//
+//});

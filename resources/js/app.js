@@ -7,7 +7,29 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import VueRouter from 'vue-router';
 
+window.Vue.use(VueRouter);
+
+import CompaniesIndex from './components/CompaniesIndex.vue';
+import CompaniesCreate from './components/CompaniesCreate.vue';
+import CompaniesEdit from './components/CompaniesEdit.vue';
+
+
+const routes = [
+    {
+        path: '/',
+        components: {
+            companiesIndex: CompaniesIndex
+        }
+    },
+    {path: '/admin/companies/create', component: CompaniesCreate, name: 'createCompany'},
+    {path: '/admin/companies/edit/:id', component: CompaniesEdit, name: 'editCompany'},
+]
+
+const router = new VueRouter({ routes });
+
+const app = new Vue({ router }).$mount('#app');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -27,6 +49,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// const app = new Vue({
+//     el: '#app',
+// });
